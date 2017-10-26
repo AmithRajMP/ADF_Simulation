@@ -22,6 +22,7 @@ function isNumeric(value) {
 		   var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;   
 			   return emailPattern.test(str);   							
 	}
+	
 	function validateForm()
 	{
 	var fname=document.forms["regform"]["FIRSTNAME"].value;
@@ -145,41 +146,41 @@ function isNumeric(value) {
 						
 							<td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
 							First Name:</td><td> 
-							   <input type="text" name="FIRSTNAME" size="25"></input></td> 
+							   <input type="text" name="FIRSTNAME" size="25" maxlength="40"></input></td> 
 							
 					   </tr>
 					   <tr>			
 							<td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-							Last Name: </td><td><input type="text" name="LASTNAME" size="25"></input></td>
+							Last Name: </td><td><input type="text" name="LASTNAME" size="25" maxlength="40"></input></td>
 							
 					   </tr>
 					   <tr>
 							<td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-							User Name:</td><td><input type="text" name="USERNAME" size="25"></input></td> 
+							User Name:</td><td><input type="text" name="USERNAME" size="25" maxlength="40"></input></td> 
 							
 					   </tr>
 					   <tr>
 						    <td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-						    Password:</td><td><input type="password" name="PASSWORD" size="27"></input></td>
+						    Password:</td><td><input type="password" name="PASSWORD" size="27" maxlength="40"></input></td>
 						   
 					   </tr>
 					   <tr>
 						    <td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-						    Confirm Password:</td><td><input type="password" name="CPASSWORD" size="27"></input></td>
+						    Confirm Password:</td><td><input type="password" name="CPASSWORD" size="27" maxlength="30"></input></td>
 						   
 					   </tr>
 					   <tr>
 						   <td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-						    Email: </td><td> <input type="text" name="EMAIL" size="25"></input></td> 
+						    Email: </td><td> <input type="text" name="EMAIL" size="25" maxlength="50"></input></td> 
 						    
 					   </tr>
 					   <tr>
                            <td><span style="font-weight: bold;color: red;font-size: 15px;">*</span>
-                           Phone Number:</td><td><input type="text" name="PHONENO" size="25"></input></td>
+                           Phone Number:</td><td><input type="text" name="PHONENO" size="25" maxlength="15"></input></td>
                            
 					   </tr>
 					   <tr>
-						   <td> Address:</td><td> <input type="text" name="ADDRESS" size="25"></input> </td>
+						   <td> Address:</td><td> <input type="text" name="ADDRESS" size="25" maxlength="30"></input> </td>
 						   
 						</tr>
 						<tr>	

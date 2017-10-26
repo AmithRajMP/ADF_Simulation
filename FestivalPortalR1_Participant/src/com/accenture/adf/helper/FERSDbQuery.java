@@ -25,6 +25,8 @@ public class FERSDbQuery {
 	private String updateQuery = "";
 	private String deleteEventQuery = "";
 	private String validateVisitor = "";
+	private String changePWDQuery = "";
+	private String verifyPWDQuery = "";
 
 	public String getSearchEvent() {
 
@@ -43,6 +45,22 @@ public class FERSDbQuery {
 
 	public void setUpdateEvent(String updateEvent) {
 		this.updateEvent = updateEvent;
+	}
+
+	public String getChangePWDQuery() {
+		return changePWDQuery;
+	}
+
+	public void setChangePWDQuery(String changePWDQuery) {
+		this.changePWDQuery = changePWDQuery;
+	}
+
+	public String getVerifyPWDQuery() {
+		return verifyPWDQuery;
+	}
+
+	public void setVerifyPWDQuery(String verifyPWDQuery) {
+		this.verifyPWDQuery = verifyPWDQuery;
 	}
 
 	public String getCheckEvent() {

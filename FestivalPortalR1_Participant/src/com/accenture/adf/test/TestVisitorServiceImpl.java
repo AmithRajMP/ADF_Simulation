@@ -230,9 +230,9 @@ public class TestVisitorServiceImpl {
 		 */		
 		
 	int status=0;
-		visitor = visitorServiceImpl.searchVisitor("jjones", "password");
+		visitor = visitorServiceImpl.searchVisitor("jon", "xxxx");
 		try {
-			visitorServiceImpl.unregisterEvent(visitor,1002);
+			visitorServiceImpl.unregisterEvent(visitor,1001);
 			String qry = "SELECT COUNT(*) AS EVENTCOUNT FROM EVENTSIGNUP WHERE EVENTID=1002 AND VISITORID=1001 ;";
 			connection = FERSDataConnection.createConnection();
 			statement = connection.prepareStatement(qry);

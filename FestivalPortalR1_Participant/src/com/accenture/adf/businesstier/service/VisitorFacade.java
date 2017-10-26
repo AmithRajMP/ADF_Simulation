@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.accenture.adf.businesstier.entity.Event;
 import com.accenture.adf.businesstier.entity.Visitor;
+import com.accenture.adf.exceptions.FERSGenericException;
 
 /**
  * <br/>
@@ -28,4 +29,6 @@ public interface VisitorFacade {
 	public int updateVisitorDetails(Visitor visitor);
 	
 	public void unregisterEvent(Visitor visitor, int eventid);
+	
+	public int changePassword(Visitor visitor) throws FERSGenericException;
 }

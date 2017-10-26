@@ -19,6 +19,8 @@
 		<property name="updateQuery" value="UPDATE VISITOR SET FIRSTNAME=?, LASTNAME=?, USERNAME=?, PASSWORD=?, EMAIL=?, PHONENUMBER=?, ADDRESS=? WHERE VISITORID=?"></property>
 		<property name="deleteEventQuery" value="DELETE FROM EVENTSIGNUP WHERE EVENTID = ? AND VISITORID = ?"></property>
 		<property name="validateVisitor" value="SELECT USERNAME FROM VISITOR"></property>
+		<property name="changePWDQuery" value="UPDATE VISITOR SET PASSWORD=? WHERE VISITORID=?;"></property>
+		<property name="verifyPWDQuery" value="SELECT PASSWORD FROM VISITOR WHERE VISITORID=?;"></property>
 	</bean>
 	
 	
