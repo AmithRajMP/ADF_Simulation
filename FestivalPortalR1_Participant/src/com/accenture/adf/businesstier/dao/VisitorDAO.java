@@ -168,7 +168,6 @@ public class VisitorDAO {
 		// TODO: Pseudo-code are in the block comments above this method
 		// TODO: For more comprehensive pseudo-code with details, refer to the
 		// Component/Class Detailed Design Document
-
 		return visitor;
 	}
 

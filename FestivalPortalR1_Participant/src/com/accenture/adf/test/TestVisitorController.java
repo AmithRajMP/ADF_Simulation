@@ -32,6 +32,7 @@ public class TestVisitorController {
 
 	/**
 	 * Set up initial methods required before execution of every method
+	 * 
 	 * @throws Exception
 	 */
 	@Before
@@ -40,17 +41,18 @@ public class TestVisitorController {
 		controller = new VisitorController();
 		session = new MockHttpSession();
 		response = new MockHttpServletResponse();
-		visitorDao =  new VisitorDAO();
+		visitorDao = new VisitorDAO();
 	}
 
 	/**
 	 * Deallocate objects after execution of every method
+	 * 
 	 * @throws Exception
 	 */
 	@After
 	public void tearDown() throws Exception {
 		/**
-		 * @TODO: Release all the objects here by assigning them null  
+		 * @TODO: Release all the objects here by assigning them null
 		 */
 		modelAndView = null;
 		controller = null;
@@ -66,7 +68,7 @@ public class TestVisitorController {
 	public void testNewVisitor_Positive() {
 		try {
 			request = new MockHttpServletRequest("GET", "/newVistor.htm");
-			
+
 			request.setParameter("USERNAME", "ylee");
 			request.setParameter("PASSWORD", "password");
 			request.setParameter("FIRSTNAME", "TestVFname");
@@ -87,8 +89,8 @@ public class TestVisitorController {
 	@Test
 	public void testNewVisitor_Negative() {
 		/**
-		 * @TODO: Call newVisitor method by passing request object as null and 
-		 * asserting the model view name
+		 * @TODO: Call newVisitor method by passing request object as null and
+		 *        asserting the model view name
 		 */
 		try {
 			request = new MockHttpServletRequest("GET", "/newVistor.htm");
@@ -99,16 +101,16 @@ public class TestVisitorController {
 		}
 		assertEquals(null, modelAndView.getViewName());
 	}
-	
+
 	/**
 	 * Positive test case to test the method searchVisitor
 	 */
 	@Test
 	public void testSearchVisitor_Positive() {
 		/**
-		 * @TODO: Create MockHttpServletRequest object 
-		 * Set request parameters for USERNAME and PASSWORD for valid values
-		 * Call searchVisitor method and assert model view name 
+		 * @TODO: Create MockHttpServletRequest object Set request parameters
+		 *        for USERNAME and PASSWORD for valid values Call searchVisitor
+		 *        method and assert model view name
 		 */
 		request = new MockHttpServletRequest("GET", "/searchVisitor.htm");
 		request.setParameter("USERNAME", "ylee");
@@ -121,16 +123,16 @@ public class TestVisitorController {
 		}
 		assertEquals("/visitormain.jsp", modelAndView.getViewName());
 	}
-	
+
 	/**
 	 * Negative test case of invalid user for method searchVisitor
 	 */
 	@Test
 	public void testSearchVisitor_Negative_InvalidUser() {
 		/**
-		 * @TODO: Create MockHttpServletRequest object 
-		 * Set request parameters for USERNAME and PASSWORD for invalid values
-		 * Call searchVisitor method and assert model view name 
+		 * @TODO: Create MockHttpServletRequest object Set request parameters
+		 *        for USERNAME and PASSWORD for invalid values Call
+		 *        searchVisitor method and assert model view name
 		 */
 		request = new MockHttpServletRequest("GET", "/searchVisitor.htm");
 		request.setParameter("USERNAME", "amith");
@@ -144,16 +146,15 @@ public class TestVisitorController {
 		assertEquals("/index.jsp", modelAndView.getViewName());
 	}
 
-
 	/**
 	 * Negative test case for method searchVisitor
 	 */
 	@Test
 	public void testSearchVisitor_Negative() {
 		/**
-		 * @TODO: Call searchVisitor method by passing request object as null and 
-		 * asserting the model view name
-		 */	
+		 * @TODO: Call searchVisitor method by passing request object as null
+		 *        and asserting the model view name
+		 */
 		request = new MockHttpServletRequest("GET", "/searchVisitor.htm");
 		try {
 			modelAndView = controller.searchVisitor(null, response);
@@ -163,20 +164,20 @@ public class TestVisitorController {
 		}
 		assertEquals(null, modelAndView.getViewName());
 	}
-	
+
 	/**
 	 * Positive test case for method registerVisitor
 	 */
 	@Test
 	public void testRegisterVisitor_Positive() throws ClassNotFoundException, SQLException {
 		/**
-		 * @TODO: Create MockHttpServletRequest object 
-		 * Set visitor object in VISITOR session by calling searchUser method from visitorDAO		 
-		 * Set request parameters for USERNAME and PASSWORD for valid values
-		 * Call registerVisitor method and assert model view name 
+		 * @TODO: Create MockHttpServletRequest object Set visitor object in
+		 *        VISITOR session by calling searchUser method from visitorDAO
+		 *        Set request parameters for USERNAME and PASSWORD for valid
+		 *        values Call registerVisitor method and assert model view name
 		 */
 		request = new MockHttpServletRequest("GET", "/eventreg.htm");
-		session.setAttribute("VISITOR",visitorDao.searchUser("ylee","password"));
+		session.setAttribute("VISITOR", visitorDao.searchUser("ylee", "password"));
 		request.setParameter("USERNAME", "ylee");
 		request.setParameter("PASSWORD", "password");
 		try {
@@ -186,7 +187,7 @@ public class TestVisitorController {
 			fail("Exception");
 		}
 		assertEquals("/visitormain.jsp", modelAndView.getViewName());
-	}	
+	}
 
 	/**
 	 * Negaative test case for method registerVisitor
@@ -194,9 +195,9 @@ public class TestVisitorController {
 	@Test
 	public void testRegisterVisitor_Negative() {
 		/**
-		 * @TODO: Call registerVisitor method by passing request object as null and 
-		 * asserting the model view name
-		 */	
+		 * @TODO: Call registerVisitor method by passing request object as null
+		 *        and asserting the model view name
+		 */
 		request = new MockHttpServletRequest("GET", "/eventreg.htm");
 		try {
 			modelAndView = controller.registerVisitor(null, response);
@@ -213,20 +214,20 @@ public class TestVisitorController {
 	@Test
 	public void testUpdateVisitor_Positive() throws ClassNotFoundException, SQLException {
 		/**
-		 * @TODO: Create MockHttpServletRequest object 
-		 * Set visitor object in VISITOR session by calling searchUser method from visitorDAO		 
-		 * Set request parameters for all valid user values
-		 * Call updateVisitor method and assert model view name 
+		 * @TODO: Create MockHttpServletRequest object Set visitor object in
+		 *        VISITOR session by calling searchUser method from visitorDAO
+		 *        Set request parameters for all valid user values Call
+		 *        updateVisitor method and assert model view name
 		 */
 		request = new MockHttpServletRequest("GET", "/updatevisitor.htm");
-		session.setAttribute("VISITOR",visitorDao.searchUser("ylee","password"));
+		session.setAttribute("VISITOR", visitorDao.searchUser("ylee", "password"));
 		request.setParameter("USERNAME", "ylee");
 		request.setParameter("PASSWORD", "password");
 		try {
 			modelAndView = controller.updateVisitor(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-		fail("Exception");
+			fail("Exception");
 		}
 		assertEquals("/updatevisitor.jsp", modelAndView.getViewName());
 	}
@@ -237,8 +238,8 @@ public class TestVisitorController {
 	@Test
 	public void testUpdateVisitor_Negative() {
 		/**
-		 * @TODO: Call updateVisitor method by passing request object as null and 
-		 * asserting the model view name
+		 * @TODO: Call updateVisitor method by passing request object as null
+		 *        and asserting the model view name
 		 */
 		try {
 			modelAndView = controller.updateVisitor(null, response);
@@ -248,23 +249,23 @@ public class TestVisitorController {
 		}
 		assertEquals(null, modelAndView.getViewName());
 	}
-	
+
 	/**
 	 * Positive test case for method unregisterEvent
 	 */
 	@Test
-	public void testUnregisterEvent_Positive() throws ClassNotFoundException, SQLException{
+	public void testUnregisterEvent_Positive() throws ClassNotFoundException, SQLException {
 		/**
-		 * @TODO: Create MockHttpServletRequest object 
-		 * Set visitor object in VISITOR session by calling searchUser method from visitorDAO		 
-		 * Set request parameters for all USERNAME, PASSWORD and eventId values
-		 * Call unregisterEvent method and assert model view name 
+		 * @TODO: Create MockHttpServletRequest object Set visitor object in
+		 *        VISITOR session by calling searchUser method from visitorDAO
+		 *        Set request parameters for all USERNAME, PASSWORD and eventId
+		 *        values Call unregisterEvent method and assert model view name
 		 */
 		request = new MockHttpServletRequest("GET", "/eventunreg.htm");
-		session.setAttribute("VISITOR",visitorDao.searchUser("ylee","password"));
+		session.setAttribute("VISITOR", visitorDao.searchUser("ylee", "password"));
 		request.setParameter("USERNAME", "ylee");
 		request.setParameter("PASSWORD", "password");
-		request.setParameter("eventId","1001");
+		request.setParameter("eventId", "1001");
 		try {
 			modelAndView = controller.unregisterEvent(request, response);
 		} catch (Exception e) {
@@ -280,9 +281,9 @@ public class TestVisitorController {
 	@Test
 	public void testUnregisterEvent_Negative() {
 		/**
-		 * @TODO: Call unregisterEvent method by passing request object as null and 
-		 * asserting the model view name
-		 */	
+		 * @TODO: Call unregisterEvent method by passing request object as null
+		 *        and asserting the model view name
+		 */
 		request = new MockHttpServletRequest("GET", "/eventunreg.htm");
 		try {
 			modelAndView = controller.unregisterEvent(null, response);
@@ -292,5 +293,78 @@ public class TestVisitorController {
 		}
 		assertEquals(null, modelAndView.getViewName());
 	}
+
+	@Test
+
+	public void testChangePassword_Positive() {
+
+		try {
+
+			request = new MockHttpServletRequest("GET", "/changePWD.htm");
+
+			Visitor visitor = visitorDao.searchUser("ylee", "password");
+			
+			session.setAttribute("VISITOR", visitor);
+			//request.setSession(session);
+			request.setSession(session);
+			
+//			request.setParameter("USERNAME", "npatel");
+//			request.setParameter("PASSWORD", "password");
+			
+			// TODO: Set visitor object to session
+			
+			// TODO: Set session object to mock request object
+		
+			request.setParameter("password", "asad");
+
+			modelAndView = controller.changePassword(request, response);
+
+		} catch (Exception exception) {
+
+			fail("Exception");
+
+		}
+//		assertEquals("/index.jsp", modelAndView.getViewName());
+		assertEquals("success", modelAndView.getModelMap().get("status"));
+
+		// To make sure password is reset to the original value after testing
+
+//		request.setParameter("password", "password");
+//
+//		modelAndView = controller.changePassword(request, response);
+
+	}
+
+	@Test
+
+	public void testChangePassword_PasswordNull() {
+
+		try {
+
+			request = new MockHttpServletRequest("GET", "/changePWD.htm");
+
+			// TODO: Search visitor with user as ‘ylee’ and password as
+			// ‘password’
+
+			Visitor visitor = visitorDao.searchUser("ylee", "password");
+			session.setAttribute("VISITOR", visitor);
+
+			request.setSession(session);
+
+			// TODO: Invoke changePassword() method on controller with mock
+			// request and response objects are arguments
+
+		} catch (Exception exception) {
+
+			fail("Exception");
+
+		}
+
+		assertEquals("error", modelAndView.getModelMap().get("status"));
+
+	}
+
+	// TODO: Add a test method to verify change password functionality with
+	// visitor as null
 
 }
